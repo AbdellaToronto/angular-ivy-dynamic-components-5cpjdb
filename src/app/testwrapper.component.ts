@@ -38,7 +38,9 @@ export class TestWrapper implements AfterViewInit, OnChanges {
         this.componentRef.instance[componentInputKey] =
           changes[componentInputKey].currentValue;
       });
-      this.componentRef.changeDetectorRef.detectChanges();
+      // setTimeout(() => {
+      //   this.componentRef.changeDetectorRef.detectChanges();
+      // }, 1000);
     }
   }
 
@@ -46,6 +48,6 @@ export class TestWrapper implements AfterViewInit, OnChanges {
     this.viewRef.clear();
     const componentFactory = this.cfr.resolveComponentFactory(DynamicComponent);
     this.componentRef = this.viewRef.createComponent(componentFactory);
-    debugger;
+    // this.componentRef.changeDetectorRef.detectChanges();
   }
 }
